@@ -40,11 +40,29 @@ const EyeScanner = ( { isScanning }: EyeScannerProps ) => {
             <div className="flex items-center mb-4">
                 <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
                 <h2 className="text-xl font-semibold text-white">Biometric Eye Scanner</h2>
+                <div className="ml-auto">
+                    <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded-full border border-red-500/30">
+                        DEMO ONLY
+                    </span>
+                </div>
             </div>
 
             <div className="relative bg-gradient-to-br from-black/50 to-gray-900/50 rounded-xl p-6 border border-white/10">
                 <div className="border-2 border-white/30 rounded-xl p-4 backdrop-blur-sm">
                     <div className="relative h-48 bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden">
+                        {/* Warning overlay */ }
+                        <div className="absolute top-2 left-2 z-30">
+                            <div className="bg-red-500/90 text-white text-xs px-2 py-1 rounded border border-red-400">
+                                ⚠️ DEMONSTRATION ONLY
+                            </div>
+                        </div>
+
+                        {/* Instructional text */ }
+                        <div className="absolute bottom-2 right-2 z-30">
+                            <div className="bg-black/70 text-white text-xs px-2 py-1 rounded border border-white/20">
+                                This is a fake scanner for demo purposes only
+                            </div>
+                        </div>
                         {/* Scanning overlay */ }
                         { isScanning && (
                             <>
@@ -166,6 +184,10 @@ const EyeScanner = ( { isScanning }: EyeScannerProps ) => {
                     { cameraReady && !isScanning && (
                         <p className="text-xs text-green-400 mt-1">Camera Active</p>
                     ) }
+
+                    <p className="text-xs text-red-400 mt-2 font-medium">
+                        ⚠️ This is a demonstration. Real biometric scanners require proper security protocols.
+                    </p>
                 </div>
             </div>
         </motion.div>
